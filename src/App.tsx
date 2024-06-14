@@ -1,13 +1,15 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Name from "./pages/Name";
 import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <img src="./buena_logo.png" alt="buena logo" />
-      <p>Register with Buena and start booking apartments</p>
-      <button>Register here</button>
-    </div>
+    <Routes>
+   <Route path="/" element={<Home />} />
+   <Route path="/name" element={<Name />} />
+   </Routes>
   );
 }
 
