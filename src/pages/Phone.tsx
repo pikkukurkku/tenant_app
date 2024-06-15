@@ -5,7 +5,7 @@ const Phone: React.FC = () => {
     return (
         <InputForm
             label="Phone"
-            type="phone"
+            type="text"
             name="phone"
             placeholder=""
             localStorageKey="phone number"

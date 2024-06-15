@@ -5,7 +5,7 @@ const Email: React.FC = () => {
   return (
       <InputForm
           label="Email"
-          type="email"
+          type="text"
           name="email"
           placeholder="Your e-mail"
           localStorageKey="email"
