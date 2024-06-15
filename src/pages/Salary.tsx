@@ -1,33 +1,25 @@
 import React from "react";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import InputForm from "../components/InputForm";
 
+const Salary: React.FC = () => {
+  const salaryOptions = [
+    { value: "0 - 1.000", label: "0 - 1.000" },
+    { value: "1.000 - 2.000", label: "1.000 - 2.000" },
+    { value: "2.000 - 3.000", label: "2.000 - 3.000" },
+    { value: "3.000 - 4.000", label: "3.000 - 4.000" },
+    { value: "More than 4.000", label: "More than 4.000" },
+  ];
 
-function Salary () {
-    const [salary, setSalary] = useState("");
-    const navigate = useNavigate();
-
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        localStorage.setItem("salary", salary);
-        navigate("/summary")
-      };
-    return (
-<div className="Salary">
-<form className="form" onSubmit={handleSubmit}>
-        <label>Your current salary</label>
-        <input
-          type="radio"
-          name="salary"
-          value={salary}
-          onChange={(e) => setSalary(e.target.value)}
-          required
-        />
-        <button>Go back</button>
-        <button type="submit">Continue</button>
-      </form>
-
-</div>
-)}
+  return (
+    <InputForm
+      label="Select your current salary range"
+      type="radio"
+      name="salary"
+      options={salaryOptions}
+      localStorageKey="salary"
+      nextRoute="/summary"
+    />
+  );
+};
 
 export default Salary;
