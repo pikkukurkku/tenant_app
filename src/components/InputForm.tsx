@@ -38,7 +38,7 @@ const InputForm: React.FC<InputFormProps> = ({
   return (
     <div className={name}>
       <form className={styles["form"]} onSubmit={handleSubmit}>
-
+<img src="../buena_logo.png" alt="buena-logo"></img>
       <p>Bitte trage die erforderlichen Daten ein:</p>
         <label>{label}</label>
         {type === "text" && (
@@ -53,10 +53,10 @@ const InputForm: React.FC<InputFormProps> = ({
         />
         )}
         {type === "radio" && (
-            <div>
+            <div className={styles["radioGroup"]}>
             {options &&
               options.map((option) => (
-                <div key={option.value}>
+                <div key={option.value} className={styles["radioOption"]}>
                   <input
                     type="radio"
                     id={option.value}
@@ -65,8 +65,10 @@ const InputForm: React.FC<InputFormProps> = ({
                     checked={selectedOption === option.value}
                     onChange={() => setSelectedOption(option.value)}
                     required
+                    className={styles["radioInput"]}
                   />
-                  <label htmlFor={option.value}>{option.label}</label>
+                   <label htmlFor={option.value} className={styles["radioLabel"]}></label>
+                   {option.label}
                 </div>
               ))}
           </div>
@@ -87,7 +89,7 @@ const InputForm: React.FC<InputFormProps> = ({
 </div>
 
         <div className={styles["buttons"]}>
-        <button className={styles["back"]} type="button">Zurück</button>
+        <button onClick={() => window.history.back()} className={styles["back"]} type="button">Zurück</button>
         <button className={styles["button"]} type="submit">Weiter</button>
         </div>
       </form>

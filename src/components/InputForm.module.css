@@ -1,6 +1,5 @@
 .custom {
   background-color: #efa72c;
-
 }
 .form {
   margin: 50px;
@@ -10,7 +9,9 @@
   align-items: center;
 }
 
-.custom, .progress, input {
+.custom,
+.progress,
+input {
   border-radius: 10px;
 }
 
@@ -38,7 +39,8 @@ label {
   font-weight: bold;
   font-size: 24px;
 }
-.button, .back {
+.button,
+.back {
   padding: 10px 20px;
   border-radius: 20px;
   border: none;
@@ -54,10 +56,47 @@ label {
 
 .back {
   background-color: #f5f5f4;
-  color: #0c0a09
+  color: #0c0a09;
 }
 
 .buttons {
   display: flex;
   gap: 20px;
+}
+
+.radioGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.radioOption {
+  display: flex;
+  align-items: center;
+}
+
+.radioInput {
+  margin-right: 10px;
+  width: 16px;
+}
+
+.radioLabel {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+  input,
+  .progress {
+    width: 90%;
+  }
+
+  p {
+    margin-top: 150px;
+  }
+
+  label,
+  .progress {
+    margin-bottom: 30px;
+  }
 }
