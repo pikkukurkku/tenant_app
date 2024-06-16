@@ -1,5 +1,12 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
 
+
+interface ProgressContextType {
+  progress: number;
+  setProgress: React.Dispatch<React.SetStateAction<number>>;
+  decreaseProgress: () => void;
+}
+
 interface ProgressContextType {
   progress: number;
   setProgress: React.Dispatch<React.SetStateAction<number>>;
@@ -26,8 +33,12 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({
 }) => {
   const [progress, setProgress] = useState<number>(20);
 
+  const decreaseProgress = () => {
+    setProgress((prevProgress) => Math.max(prevProgress - 20, 0));
+  };
+
   return (
-    <ProgressContext.Provider value={{ progress, setProgress }}>
+    <ProgressContext.Provider value={{ progress, setProgress, decreaseProgress }}>
       {children}
     </ProgressContext.Provider>
   );

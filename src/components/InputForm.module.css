@@ -2,7 +2,7 @@
   background-color: #efa72c;
 }
 .form {
-  margin: 50px;
+  margin: 50px 150px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -30,7 +30,19 @@ input {
   margin: 15px 0 0 0;
 }
 
-p {
+.grow {
+  transition: all .2s ease-in-out;
+  align-self: center;
+  margin: 40px;
+  margin-bottom: 40px;
+  align-self: flex-end;
+}
+
+.grow:hover {
+  transform: scale(1.2);
+}
+
+.par {
   text-align: center;
   margin: 50px 0;
 }
@@ -38,6 +50,7 @@ p {
 label {
   font-weight: bold;
   font-size: 24px;
+  text-align: center;
 }
 .button,
 .back {
@@ -66,19 +79,22 @@ label {
 
 .radioGroup {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
+  flex-direction: row;
+  align-content: center;
+  gap: 25px;
+  margin-top: 20px;
 }
 
 .radioOption {
   display: flex;
-  align-items: center;
+  align-content: center;
 }
 
 .radioInput {
-  margin-right: 10px;
+  margin: 5px 6px 0 0;
   width: 16px;
+  height: 16px; 
+  align-content: center;
 }
 
 .radioLabel {
@@ -88,7 +104,7 @@ label {
 @media only screen and (max-width: 600px) {
   input,
   .progress {
-    width: 90%;
+    width: 60vw
   }
 
   p {
@@ -98,5 +114,20 @@ label {
   label,
   .progress {
     margin-bottom: 30px;
+  }
+
+  .radioGroup {
+    flex-direction: column;
+  }
+  .radioOption {
+    margin: 0;
+    padding: 0;
+    width: 70vw;
+    justify-content: center;
+
+  }
+
+  .grow {
+    align-self: center;
   }
 }

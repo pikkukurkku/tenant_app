@@ -4,10 +4,10 @@ import InputForm from "../components/InputForm";
 const Email: React.FC = () => {
   return (
       <InputForm
-          label="Email"
+          label="E-mail"
           type="text"
           name="email"
-          placeholder="Your e-mail"
+          placeholder="Deine E-Mail-Adresse"
           localStorageKey="email"
           nextRoute="/phone"
       />

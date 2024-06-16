@@ -16,7 +16,7 @@ const Home: React.FC = () => {
   
   return (
     <div className="Home">
-      <span>Home ist jetzt Buena</span>
+      <span className={styles["span"]}>Home ist jetzt Buena</span>
       <div className={styles["navbar"]}>
       <div className={styles["navbar-btns"]}>
         <button onClick={logInClick} className={styles["einloggen"]}>Einloggen</button>
@@ -24,7 +24,7 @@ const Home: React.FC = () => {
         <p className={styles["regular"]}>Über Buena</p>
         <p className={styles["regular"]}>Jobs</p>
         </div>
-        <img src="./buena_logo.png" alt="buena logo" />
+        <img src="./buena_logo.png" className={styles["grow"]} alt="buena logo" />
       </div>
       {errorMessage && 
               <p className={styles["errorMsg"]}>{errorMessage}</p>}

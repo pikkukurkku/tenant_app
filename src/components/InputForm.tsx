@@ -26,7 +26,7 @@ const InputForm: React.FC<InputFormProps> = ({
   const [inputValue, setInputValue] = useState<string>("");
   const [selectedOption, setSelectedOption] = useState<string>("");
   const navigate = useNavigate();
-  const { progress, setProgress } = useProgress();
+  const { progress, setProgress, decreaseProgress } = useProgress();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -35,11 +35,20 @@ const InputForm: React.FC<InputFormProps> = ({
     navigate(nextRoute);
   };
 
+  const handleBack = () => {
+    decreaseProgress();
+    window.history.back();
+  };
+
+  const toHomePage = () => {
+    window.location.href = "/";
+  };
+
   return (
     <div className={name}>
       <form className={styles["form"]} onSubmit={handleSubmit}>
-<img src="../buena_logo.png" alt="buena-logo"></img>
-      <p>Bitte trage die erforderlichen Daten ein:</p>
+<img src="../buena_logo.png" alt="buena-logo" className={styles["grow"]} onClick={toHomePage}></img>
+      <p className={styles["par"]}>Bitte trage die erforderlichen Daten ein:</p>
         <label>{label}</label>
         {type === "text" && (
         <input
@@ -89,7 +98,7 @@ const InputForm: React.FC<InputFormProps> = ({
 </div>
 
         <div className={styles["buttons"]}>
-        <button onClick={() => window.history.back()} className={styles["back"]} type="button">Zurück</button>
+        <button onClick={handleBack} className={styles["back"]} type="button">Zurück</button>
         <button className={styles["button"]} type="submit">Weiter</button>
         </div>
       </form>

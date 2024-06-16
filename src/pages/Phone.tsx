@@ -4,10 +4,10 @@ import InputForm from "../components/InputForm";
 const Phone: React.FC = () => {
     return (
         <InputForm
-            label="Phone"
+            label="Telefonnummer"
             type="text"
             name="phone"
-            placeholder=""
+            placeholder="Deine Handynummer"
             localStorageKey="phone number"
             nextRoute="/salary"
         />
