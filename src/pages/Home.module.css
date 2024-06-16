@@ -3,8 +3,9 @@
 }
 
 .regular {
-  color: #0c0a09;
+  color: #a6a19e;
   margin: 0;
+  font-weight: 500;
 }
 
 .button {
@@ -13,18 +14,18 @@
   padding: 10px 20px;
   border-radius: 20px;
   border: none;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 16px;
   cursor: pointer;
 }
 
 .einloggen {
   background-color: #f5f5f4;
-  color: #a6a19e;
+  color: #0c0a09;
   padding: 10px 20px;
   border-radius: 20px;
   border: none;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 16px;
   cursor: pointer;
 }
@@ -40,7 +41,8 @@ span {
   display: flex;
   justify-content: center;
   margin: 0;
-  padding: 10px 0;
+  padding: 6px 0;
+  font-size: 15px;
 }
 
 .navbar {
@@ -55,7 +57,7 @@ span {
 .navbar-btns {
   display: flex;
   flex-direction: row;
-  gap: 50px;
+  gap: 45px;
   align-items: center;
 }
 
@@ -64,9 +66,11 @@ section {
 }
 
 .register {
-  margin-bottom: 20px;
+  margin: 0 0 20px 10px;
   text-align: left;
 }
+
+
 
 .video-container {
   display: flex;
@@ -76,7 +80,7 @@ section {
 }
 
 .video {
-  width: 70%;
+  width: 90%;
   height: auto;
 }
 

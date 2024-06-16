@@ -1,13 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from './Home.module.css'
-import { useState } from "react";
 
 const Home: React.FC = () => {
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
-  const logInClick = () => {
-    console.log('I was clicked')
+  const logInClick = (): void => {
     if (errorMessage) {
       setErrorMessage("");
     } else {
