@@ -74,7 +74,7 @@ const InputForm: React.FC<InputFormProps> = ({
 
 <div className="progress">
   <div
-    className="progress-bar"
+    className="progress-bar custom"
     role="progressbar"
     aria-label="Example with label"
     aria-valuenow={progress} 
