@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useProgress } from "../contexts/useProgress";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './InputForm.css'
+import styles from './InputForm.module.css'
 
 interface InputFormProps {
   label: string;
@@ -37,13 +37,13 @@ const InputForm: React.FC<InputFormProps> = ({
 
   return (
     <div className={name}>
-      <form className="form" onSubmit={handleSubmit}>
-
-     
+      <form className={styles["form"]} onSubmit={handleSubmit}>
+<img src="../buena_logo.png" alt="buena-logo"></img>
+      <p>Bitte trage die erforderlichen Daten ein:</p>
         <label>{label}</label>
         {type === "text" && (
         <input
-          className="nameInput"
+          className={styles["nameInput"]}
           type="text"
           name={name}
           value={inputValue}
@@ -53,10 +53,10 @@ const InputForm: React.FC<InputFormProps> = ({
         />
         )}
         {type === "radio" && (
-            <div>
+            <div className={styles["radioGroup"]}>
             {options &&
               options.map((option) => (
-                <div key={option.value}>
+                <div key={option.value} className={styles["radioOption"]}>
                   <input
                     type="radio"
                     id={option.value}
@@ -65,16 +65,18 @@ const InputForm: React.FC<InputFormProps> = ({
                     checked={selectedOption === option.value}
                     onChange={() => setSelectedOption(option.value)}
                     required
+                    className={styles["radioInput"]}
                   />
-                  <label htmlFor={option.value}>{option.label}</label>
+                   <label htmlFor={option.value} className={styles["radioLabel"]}></label>
+                   {option.label}
                 </div>
               ))}
           </div>
         )}
 
-<div className="progress">
+<div className={styles["progress"]}>
   <div
-    className="progress-bar"
+    className={`progress-bar ${styles["custom"]}`}
     role="progressbar"
     aria-label="Example with label"
     aria-valuenow={progress} 
@@ -86,9 +88,9 @@ const InputForm: React.FC<InputFormProps> = ({
   </div>
 </div>
 
-        <div className="buttons">
-        <button type="button">Go back</button>
-        <button type="submit">Continue</button>
+        <div className={styles["buttons"]}>
+        <button onClick={() => window.history.back()} className={styles["back"]} type="button">Zurück</button>
+        <button className={styles["button"]} type="submit">Weiter</button>
         </div>
       </form>
     </div>

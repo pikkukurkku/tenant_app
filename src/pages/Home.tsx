@@ -1,29 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import './Home.css'
+import styles from './Home.module.css'
 
-function Home() {
+
+const Home: React.FC = () => {
+  const [errorMessage, setErrorMessage] = useState<string>("");
+
+  const logInClick = (): void => {
+    if (errorMessage) {
+      setErrorMessage("");
+    } else {
+      setErrorMessage("This button does not do anything, only demo :)");
+    }
+  }
+  
   return (
     <div className="Home">
       <span>Home ist jetzt Buena</span>
-      <div className="navbar">
-      
-        <button className="button">Einloggen</button>
-        <div className="navbar-btns">
-        <p>So funktioniert's</p>
-        <p>Über Buena</p>
-        <p>Jobs</p>
+      <div className={styles["navbar"]}>
+      <div className={styles["navbar-btns"]}>
+        <button onClick={logInClick} className={styles["einloggen"]}>Einloggen</button>
+        <p className={styles["regular"]}>So funktioniert's</p>
+        <p className={styles["regular"]}>Über Buena</p>
+        <p className={styles["regular"]}>Jobs</p>
         </div>
         <img src="./buena_logo.png" alt="buena logo" />
       </div>
+      {errorMessage && 
+              <p className={styles["errorMsg"]}>{errorMessage}</p>}
+        
       <section>
-      <p className="register">Register with Buena and start booking apartments</p>
+      <p className={styles["register"]}>Registriere dich bei Buena und beginne mit der Wohnungssuche</p>
       <Link to="/name">
-        <button className="button">Register here</button>
+        <button className={styles["button"]}>Los geht's</button>
       </Link>
       </section>
-      <div className="video-container">
-      <video className="video" src="./buena_video.mp4"></video>
+      <div className={styles["video-container"]}>
+      <video className={styles["video"]} src="./buena_video.mp4" controls></video>
       </div>
     </div>
   );

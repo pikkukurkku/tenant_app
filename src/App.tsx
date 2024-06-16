@@ -1,4 +1,3 @@
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Name from "./pages/Name";
@@ -9,7 +8,7 @@ import Summary from "./pages/Summary";
 
 
 
-function App() {
+const App: React.FC = () => {
   return (
       <Routes>
         <Route path="/" element={<Home />} />
