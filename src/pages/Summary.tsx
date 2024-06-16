@@ -30,18 +30,18 @@ const Summary: React.FC = () => {
 
   return (
     <div>
-      <h1>Summary</h1>
+      <h1>Deine persönliche Daten</h1>
       <p>
-        <strong>Name:</strong> {name}
+        <strong>Vor- und Nachname:</strong> {name}
       </p>
       <p>
-        <strong>Email:</strong> {email}
+        <strong>E-mail:</strong> {email}
       </p>
       <p>
-        <strong>Phone:</strong> {phone}
+        <strong>Telefon-Nummer:</strong> {phone}
       </p>
       <p>
-        <strong>Salary:</strong> {salary}
+        <strong>Gehalt:</strong> {salary}
       </p>
     </div>
   );

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useProgress } from "../contexts/useProgress";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './InputForm.css'
+import styles from './InputForm.module.css'
 
 interface InputFormProps {
   label: string;
@@ -37,13 +37,13 @@ const InputForm: React.FC<InputFormProps> = ({
 
   return (
     <div className={name}>
-      <form className="form" onSubmit={handleSubmit}>
+      <form className={styles["form"]} onSubmit={handleSubmit}>
 
-     
+      <p>Bitte trage die erforderlichen Daten ein:</p>
         <label>{label}</label>
         {type === "text" && (
         <input
-          className="nameInput"
+          className={styles["nameInput"]}
           type="text"
           name={name}
           value={inputValue}
@@ -72,9 +72,9 @@ const InputForm: React.FC<InputFormProps> = ({
           </div>
         )}
 
-<div className="progress">
+<div className={styles["progress"]}>
   <div
-    className="progress-bar custom"
+    className={`progress-bar ${styles["custom"]}`}
     role="progressbar"
     aria-label="Example with label"
     aria-valuenow={progress} 
@@ -86,9 +86,9 @@ const InputForm: React.FC<InputFormProps> = ({
   </div>
 </div>
 
-        <div className="buttons">
-        <button type="button">Go back</button>
-        <button type="submit">Continue</button>
+        <div className={styles["buttons"]}>
+        <button className={styles["back"]} type="button">Zurück</button>
+        <button className={styles["button"]} type="submit">Weiter</button>
         </div>
       </form>
     </div>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from './Home.module.css'
 
+
 const Home: React.FC = () => {
   const [errorMessage, setErrorMessage] = useState<string>("");
 
@@ -29,9 +30,9 @@ const Home: React.FC = () => {
               <p className={styles["errorMsg"]}>{errorMessage}</p>}
         
       <section>
-      <p className={styles["register"]}>Register with Buena and start booking apartments</p>
+      <p className={styles["register"]}>Registriere dich bei Buena und beginne mit der Wohnungssuche</p>
       <Link to="/name">
-        <button className={styles["button"]}>Register here</button>
+        <button className={styles["button"]}>Los geht's</button>
       </Link>
       </section>
       <div className={styles["video-container"]}>
