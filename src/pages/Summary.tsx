@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
 import styles from './Summary.module.css'
+import { useNavigate, useLocation } from "react-router-dom";
+import { useProgress } from "../contexts/useProgress";
 
 const Summary: React.FC = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [salary, setSalary] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+  const {  resetProgress } = useProgress();
 
-  const toHomePage = () => {
-    window.location.href = "/";
-  };
+
 
   useEffect(() => {
     const storedName = localStorage.getItem("name");
@@ -32,6 +35,17 @@ const Summary: React.FC = () => {
       setSalary(storedSalary);
     }
   }, []);
+
+  const toHomePage = () => {
+    resetProgress();
+    navigate("/");
+  };
+
+  useEffect(() => {
+    if (location.pathname === "/") {
+      resetProgress(); 
+    }
+  }, [location.pathname, resetProgress]);
 
   return (
     <div className={styles["summary"]}>

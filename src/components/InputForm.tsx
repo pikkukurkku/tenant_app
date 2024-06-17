@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useProgress } from "../contexts/useProgress";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./InputForm.module.css";
@@ -27,10 +27,10 @@ const InputForm: React.FC<InputFormProps> = ({
   const [selectedOption, setSelectedOption] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string>("")
   const navigate = useNavigate();
-  const { progress, setProgress, decreaseProgress } = useProgress();
+  const location = useLocation();
+  const { progress, increaseProgress, decreaseProgress, resetProgress } = useProgress();
 
   const validateInput = (value: string) => {
-
     const regex = /^[a-zA-Z]+ [a-zA-Z]+$/;
     return regex.test(value);
   };
@@ -47,7 +47,7 @@ const InputForm: React.FC<InputFormProps> = ({
       localStorageKey,
       type === "radio" ? selectedOption : inputValue
     );
-    setProgress((prevProgress) => Math.min(prevProgress + 20, 100));
+    increaseProgress(); 
     navigate(nextRoute);
   };
 
@@ -57,8 +57,15 @@ const InputForm: React.FC<InputFormProps> = ({
   };
 
   const toHomePage = () => {
-    window.location.href = "/";
+    resetProgress();
+    navigate("/");
   };
+
+  useEffect(() => {
+    if (location.pathname === "/") {
+      resetProgress(); 
+    }
+  }, [location.pathname, resetProgress]);
 
   return (
     <div className={name}>
@@ -84,7 +91,7 @@ const InputForm: React.FC<InputFormProps> = ({
             placeholder={placeholder}
             required
           />
-          {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+          {errorMessage && <p className={styles["error"]}>{errorMessage}</p>}
           </>
         )}
         {type === "radio" && (
