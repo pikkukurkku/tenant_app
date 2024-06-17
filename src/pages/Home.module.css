@@ -84,14 +84,15 @@ section {
 
 .errorMsg {
   text-align: left;
-  font-size: 12px;
+  font-size: 16px;
   color: red;
-  margin-left: 50px;
+  margin-left: 60px;
+  text-align: left;
   font-weight: bold;
 }
 
 .grow {
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   margin-right: 50px;
 }
 
@@ -99,25 +100,23 @@ section {
   transform: scale(1.2);
 }
 
-
 @media only screen and (max-width: 600px) {
-  
-.navbar {
-  flex-direction: column-reverse;
-  margin: 10px 50px;
-  padding: 10px 0;
-}
+  .navbar {
+    flex-direction: column-reverse;
+    margin: 10px 50px;
+    padding: 10px 0;
+  }
 
-.navbar-btns {
-  flex-direction: column;
-  gap: 10px;
-}
+  .navbar-btns {
+    flex-direction: column;
+    gap: 10px;
+  }
 
-section {
-  margin: 40px 50px;
-}
-.grow {
-  align-self: center;
-  margin: 18px 0;
-}
+  section {
+    margin: 40px 50px;
+  }
+  .grow {
+    align-self: center;
+    margin: 18px 0;
+  }
 }
