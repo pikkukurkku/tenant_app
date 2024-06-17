@@ -72,6 +72,7 @@ const Summary: React.FC = () => {
       </tbody>
     </table>
     </div>
+    <p>Zurück zu</p>
     <img src="./buena_logo.png" className={styles["grow"]} alt="buena logo" onClick={toHomePage} />
   </div>
 );

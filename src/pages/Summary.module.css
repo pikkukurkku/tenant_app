@@ -33,6 +33,7 @@
 .data td {
   padding: 8px;
   text-align: left;
+  word-wrap: break-word; 
 }
 
 .data th {
@@ -58,5 +59,17 @@
 
   .grow {
     margin: 20px;
+  }
+
+  .data th,
+  .data td {
+    display: block;
+    width: 100%;
+    word-wrap: break-word;
+  }
+
+  .data tr {
+    display: block;
+    margin-bottom: 10px;
   }
 }
