@@ -1,6 +1,7 @@
 .custom {
   background-color: #efa72c;
 }
+
 .form {
   margin: 50px 150px;
   display: flex;
@@ -52,6 +53,7 @@ label {
   font-size: 24px;
   text-align: center;
 }
+
 .button,
 .back {
   padding: 10px 20px;
@@ -99,6 +101,13 @@ label {
 
 .radioLabel {
   cursor: pointer;
+}
+
+.error {
+  font-size: 15px;
+  color: red;
+  text-align: center;
+  font-weight: bold;
 }
 
 @media only screen and (max-width: 600px) {
