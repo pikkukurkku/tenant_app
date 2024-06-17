@@ -38,6 +38,9 @@ const InputForm: React.FC<InputFormProps> = ({
     } else if (name === "email") {
       const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       return regex.test(value);
+    } else if (name === "phone") {
+      const regex = /^[0-9]+$/;
+      return regex.test(value);
     }
     return true;
   };
@@ -45,23 +48,18 @@ const InputForm: React.FC<InputFormProps> = ({
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (
-      name === "name" &&
-      type === "text" &&
-      !validateInput(name, inputValue)
-    ) {
+    if (type === "text" && !validateInput(name, inputValue)) {
+      if (name === "name") {
       setErrorMessage(
         "Please enter a valid name and surname separated by a space. Please do not use special signs"
       );
-      return;
-    } else if (
-      name === "email" &&
-      type === "text" &&
-      !validateInput(name, inputValue)
-    ) {
+    } else if (name === "email") {
       setErrorMessage("Please enter a valid email address.");
-      return;
+    } else if (name === "phone") {
+      setErrorMessage("Please enter a valid phone number.");
     }
+    return;
+  }
 
     localStorage.setItem(
       localStorageKey,
