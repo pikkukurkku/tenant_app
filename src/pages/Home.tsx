@@ -45,7 +45,8 @@ const Home: React.FC = () => {
         <video
           className={styles["video"]}
           src="./buena_video.mp4"
-          controls
+          autoPlay
+          muted
           playsInline
         ></video>
       </div>

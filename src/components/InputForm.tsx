@@ -30,16 +30,25 @@ const InputForm: React.FC<InputFormProps> = ({
   const location = useLocation();
   const { progress, increaseProgress, decreaseProgress, resetProgress } = useProgress();
 
-  const validateInput = (value: string) => {
-    const regex = /^[a-zA-Z]+ [a-zA-Z]+$/;
-    return regex.test(value);
+  const validateInput = (name: string, value: string) => {
+    if (name === "name") {
+      const regex = /^[a-zA-Z]+ [a-zA-Z]+$/;
+      return regex.test(value);
+    } else if (name === "email") {
+      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return regex.test(value);
+    }
+    return true;
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (name === "name" && type === "text" && !validateInput(inputValue)) {
-      setErrorMessage('Please enter a valid name and surname separated by a space.');
+    if (name === "name" && type === "text" && !validateInput(name, inputValue)) {
+      setErrorMessage("Please enter a valid name and surname separated by a space. Please do not use special signs");
+      return;
+    } else if (name === "email" && type === "text" && !validateInput(name, inputValue)) {
+      setErrorMessage("Please enter a valid email address.");
       return;
     }
 
@@ -79,7 +88,7 @@ const InputForm: React.FC<InputFormProps> = ({
         <p className={styles["par"]}>
           Bitte trage die erforderlichen Daten ein:
         </p>
-        <label>{label}</label>
+        <label className={styles["label"]}>{label}</label>
         {type === "text" && (
           <>
           <input
