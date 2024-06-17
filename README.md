@@ -46,6 +46,11 @@ There is a minor CSS animation on the Homepage, when hovering over the company l
 
 Wherever you click on the company logo, you will get sent back to the Home view
 
+## Backlog
+
+- automated testing
+- 
+
 
 ## Deployment and Demo
 

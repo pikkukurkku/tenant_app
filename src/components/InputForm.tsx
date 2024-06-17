@@ -25,10 +25,11 @@ const InputForm: React.FC<InputFormProps> = ({
 }) => {
   const [inputValue, setInputValue] = useState<string>("");
   const [selectedOption, setSelectedOption] = useState<string>("");
-  const [errorMessage, setErrorMessage] = useState<string>("")
+  const [errorMessage, setErrorMessage] = useState<string>("");
   const navigate = useNavigate();
   const location = useLocation();
-  const { progress, increaseProgress, decreaseProgress, resetProgress } = useProgress();
+  const { progress, increaseProgress, decreaseProgress, resetProgress } =
+    useProgress();
 
   const validateInput = (name: string, value: string) => {
     if (name === "name") {
@@ -44,10 +45,20 @@ const InputForm: React.FC<InputFormProps> = ({
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (name === "name" && type === "text" && !validateInput(name, inputValue)) {
-      setErrorMessage("Please enter a valid name and surname separated by a space. Please do not use special signs");
+    if (
+      name === "name" &&
+      type === "text" &&
+      !validateInput(name, inputValue)
+    ) {
+      setErrorMessage(
+        "Please enter a valid name and surname separated by a space. Please do not use special signs"
+      );
       return;
-    } else if (name === "email" && type === "text" && !validateInput(name, inputValue)) {
+    } else if (
+      name === "email" &&
+      type === "text" &&
+      !validateInput(name, inputValue)
+    ) {
       setErrorMessage("Please enter a valid email address.");
       return;
     }
@@ -56,7 +67,7 @@ const InputForm: React.FC<InputFormProps> = ({
       localStorageKey,
       type === "radio" ? selectedOption : inputValue
     );
-    increaseProgress(); 
+    increaseProgress();
     navigate(nextRoute);
   };
 
@@ -72,7 +83,7 @@ const InputForm: React.FC<InputFormProps> = ({
 
   useEffect(() => {
     if (location.pathname === "/") {
-      resetProgress(); 
+      resetProgress();
     }
   }, [location.pathname, resetProgress]);
 
@@ -91,16 +102,16 @@ const InputForm: React.FC<InputFormProps> = ({
         <label className={styles["label"]}>{label}</label>
         {type === "text" && (
           <>
-          <input
-            className={styles["nameInput"]}
-            type="text"
-            name={name}
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-            placeholder={placeholder}
-            required
-          />
-          {errorMessage && <p className={styles["error"]}>{errorMessage}</p>}
+            <input
+              className={styles["nameInput"]}
+              type="text"
+              name={name}
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              placeholder={placeholder}
+              required
+            />
+            {errorMessage && <p className={styles["error"]}>{errorMessage}</p>}
           </>
         )}
         {type === "radio" && (
