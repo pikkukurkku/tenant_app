@@ -11,7 +11,7 @@ interface ProgressContextType {
 
 const ProgressContext = createContext<ProgressContextType | undefined>(undefined);
 
-export const useProgress = () => {
+export const useProgress = (): ProgressContextType => {
   const context = useContext(ProgressContext);
   if (!context) {
     throw new Error("useProgress must be used within a ProgressProvider");
@@ -33,15 +33,15 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
     localStorage.setItem('progress', progress.toString());
   }, [progress]);
 
-  const increaseProgress = () => {
+  const increaseProgress = (): void => {
     setProgress((prevProgress) => (prevProgress >= 80 ? 100 : prevProgress + 20))
   };
 
-  const decreaseProgress = () => {
+  const decreaseProgress = (): void => {
     setProgress((prevProgress) => Math.max(prevProgress - 20, 20));
   };
 
-  const resetProgress = () => {
+  const resetProgress = (): void => {
     setProgress(20);
     localStorage.removeItem('progress'); 
   };

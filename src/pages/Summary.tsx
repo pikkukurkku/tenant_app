@@ -4,10 +4,10 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useProgress } from "../contexts/useProgress";
 
 const Summary: React.FC = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [salary, setSalary] = useState("");
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [phone, setPhone] = useState<string>("");
+  const [salary, setSalary] = useState<string>("");
   const navigate = useNavigate();
   const location = useLocation();
   const {  resetProgress } = useProgress();
@@ -36,7 +36,7 @@ const Summary: React.FC = () => {
     }
   }, []);
 
-  const toHomePage = () => {
+  const toHomePage = (): void => {
     resetProgress();
     navigate("/");
   };

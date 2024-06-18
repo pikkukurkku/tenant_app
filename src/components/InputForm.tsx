@@ -45,7 +45,7 @@ const InputForm: React.FC<InputFormProps> = ({
     return true;
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
 
     if (type === "text" && !validateInput(name, inputValue)) {
@@ -69,12 +69,12 @@ const InputForm: React.FC<InputFormProps> = ({
     navigate(nextRoute);
   };
 
-  const handleBack = () => {
+  const handleBack = (): void => {
     decreaseProgress();
     window.history.back();
   };
 
-  const toHomePage = () => {
+  const toHomePage = (): void => {
     resetProgress();
     navigate("/");
   };
