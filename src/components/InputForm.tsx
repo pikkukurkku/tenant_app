@@ -31,6 +31,17 @@ const InputForm: React.FC<InputFormProps> = ({
   const { progress, increaseProgress, decreaseProgress, resetProgress } =
     useProgress();
 
+    useEffect(()=> {
+      const storedValue = localStorage.getItem(localStorageKey);
+      if (storedValue) {
+        if (type === "text") {
+          setInputValue(storedValue);
+        } else if (type === "radio") {
+          setSelectedOption(storedValue)
+        }
+        }
+      }, [localStorageKey, type])
+
   const validateInput = (name: string, value: string) => {
     if (name === "name") {
       const regex = /^[a-zA-Z]+ [a-zA-Z]+$/;
